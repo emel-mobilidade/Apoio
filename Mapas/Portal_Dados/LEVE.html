@@ -114,7 +114,7 @@
   // LEVE
   map.addSource('leve', {
       type: 'geojson',
-      data: "https://services7.arcgis.com/VI34LdaZXM3uSRIn/ArcGIS/rest/services/EMEL_OPENDATA/FeatureServer/2/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=*&returnGeometry=true&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token="
+      data: "https://services7.arcgis.com/VI34LdaZXM3uSRIn/ArcGIS/rest/services/EMEL_OPENDATA/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=*&returnGeometry=true&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token="
   });
 
   map.addLayer({
@@ -122,8 +122,8 @@
     type: 'symbol',
     source: 'leve',
     layout: {
-      'icon-image': 'bicipark_icon',
-      'icon-size': 0.102,
+      'icon-image': 'leve_icon',
+      'icon-size': 0.152,
       'icon-allow-overlap': true,
       'icon-ignore-placement': true,
     }
@@ -131,7 +131,7 @@
 
   map.loadImage('https://emel-mobilidade.github.io/Apoio/Mapas/imagens/leve.png', function(error, image) {
     if (error) throw error;
-    map.addImage('bicipark_icon', image);
+    map.addImage('leve_icon', image);
   });
 
 
