@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Localização LEVE</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet" />
+<style>
+	body { margin: 0; padding: 0; }
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css"/>
+<script src="https://unpkg.com/@turf/turf/turf.min.js"></script>
+
+<style>
+  #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+  }
+  #map-overlay {
+      position: absolute;
+      bottom: 35px;
+      left: 10px;
+      color: black;
+      font-family: sans-serif;
+      font-size: 15px;
+      z-index: 1;
+  }
+  .info-box {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 220px;
+      padding: 10px;
+      background-color: #ffffff80; /* 50% opacity white background */
+      color: black;
+      font-family: sans-serif;
+      font-size: 12.5px;
+  }
+  
+  .logo {
+      position: absolute;
+      bottom: 30px;
+      left: 10px;
+      width: 100px;
+      height: 100px;
+  }
+
+  .logo2 {
+      position: absolute;
+      top: 30px;
+      left: 10px;
+      width: 30;
+      height: 30px;
+  }
+  
+</style>
+</head>
+<body>
+
+<div id='map'></div>
+
+<div class="info-box">
+  <h2>---   Localização BiciPark</h2>
+</div>
+
+
+
+<img class="logo" src="https://www.emel.pt/temas/emel/img/logo/emel-logo-color.svg" alt="Logo">
+<img class="logo2" src="https://emel-mobilidade.github.io/Apoio/Mapas/imagens/leve.png" alt="Logo2">
+
+
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoibWFudWVsYmFuemEtZW1lbCIsImEiOiJjbG44cGd3cDMwMTlpMm1xcjNhZHAzM2YwIn0.rftYVhN1tsZkgekCaZfc1g';
+  const transformRequest = (url) => {
+    const hasQuery = url.indexOf("?") !== -1;
+    const suffix = hasQuery ? "&pluginName=lunchboxIsochrones" : "?pluginName=lunchboxIsochrones";
+    return {
+      url: url + suffix
+    }
+  }
+  
+  
+  const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/light-v10',
+      center: [-9.1375946,38.7331092],
+      zoom: 12.1,
+      transformRequest: transformRequest
+  });
+
+
+
+
+
+  map.on("load", () => {
+    // Add source and layer for the isochrone
+    map.addSource("iso", {
+      type: "geojson",
+      data: {
+        type: "FeatureCollection",
+        features: [
+        ]
+      }
+    });
+
+
+  // LEVE
+  map.addSource('leve', {
+      type: 'geojson',
+      data: "https://services7.arcgis.com/VI34LdaZXM3uSRIn/ArcGIS/rest/services/EMEL_OPENDATA/FeatureServer/2/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=*&returnGeometry=true&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token="
+  });
+
+  map.addLayer({
+    id: 'leve_markers',
+    type: 'symbol',
+    source: 'leve',
+    layout: {
+      'icon-image': 'bicipark_icon',
+      'icon-size': 0.102,
+      'icon-allow-overlap': true,
+      'icon-ignore-placement': true,
+    }
+  });
+
+  map.loadImage('https://emel-mobilidade.github.io/Apoio/Mapas/imagens/leve.png', function(error, image) {
+    if (error) throw error;
+    map.addImage('bicipark_icon', image);
+  });
+
+
+  // Add a popup to the map
+  var popup = new mapboxgl.Popup({
+      closeButton: false,
+      closeOnClick: false
+  });
+
+  // Listen for the mousemove event on the layer
+  map.on('mousemove', 'leve_markers', function(e) {
+      // Get the first feature at the mouse location
+      var feature = e.features[0];
+      // Set the popup content to the value of the INF_NOME attribute
+      popup.setHTML(feature.properties.Posto);
+      // Show the popup at the mouse location
+      popup.setLngLat(e.lngLat).addTo(map);
+  });
+
+  // Remove the popup when the mouse leaves the layer
+  map.on('mouseleave', 'leve_markers', function() {
+      popup.remove();
+  });
+
+
+
+
+
+  });
+</script>
+
+</body>
+</html>
