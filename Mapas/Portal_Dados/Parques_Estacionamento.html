@@ -56,7 +56,7 @@
       position: absolute;
       top: 30px;
       left: 10px;
-      width: 30;
+      width: 50px;
       height: 30px;
   }
   
@@ -111,20 +111,20 @@
     });
 
 
-  // LEVE
+  // parques
   
-  map.addSource('leve', {
+  map.addSource('parques', {
       type: 'geojson',
       data: "https://services7.arcgis.com/VI34LdaZXM3uSRIn/ArcGIS/rest/services/EMEL_OPENDATA/FeatureServer/1/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=*&returnGeometry=true&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token="
   });
 
   map.addLayer({
-    id: 'leve_markers',
+    id: 'parques_markers',
     type: 'symbol',
-    source: 'leve',
+    source: 'parques',
     layout: {
-      'icon-image': 'leve_icon',
-      'icon-size': 0.152,
+      'icon-image': 'parques_icon',
+      'icon-size': 0.0252,
       'icon-allow-overlap': true,
       'icon-ignore-placement': true,
     }
@@ -132,7 +132,7 @@
 
   map.loadImage('https://emel-mobilidade.github.io/Apoio/Mapas/imagens/car_parking_icon.png', function(error, image) {
     if (error) throw error;
-    map.addImage('leve_icon', image);
+    map.addImage('parques_icon', image);
   });
 
 
@@ -143,17 +143,17 @@
   });
 
   // Listen for the mousemove event on the layer
-  map.on('mousemove', 'leve_markers', function(e) {
+  map.on('mousemove', 'parques_markers', function(e) {
       // Get the first feature at the mouse location
       var feature = e.features[0];
       // Set the popup content to the value of the INF_NOME attribute
-      popup.setHTML(feature.properties.Posto);
+      popup.setHTML(feature.properties.Parque);
       // Show the popup at the mouse location
       popup.setLngLat(e.lngLat).addTo(map);
   });
 
   // Remove the popup when the mouse leaves the layer
-  map.on('mouseleave', 'leve_markers', function() {
+  map.on('mouseleave', 'parques_markers', function() {
       popup.remove();
   });
 
