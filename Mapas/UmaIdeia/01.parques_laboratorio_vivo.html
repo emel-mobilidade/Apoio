@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_8a8dc74d1ff3c506d99977e6eb38fc73 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.css"/>
+</head>
+<body>    
+    
+<div style="position: absolute; top: 10px; left: 10px; z-index: 1000;
+            font-family: 'Gotham', sans-serif; font-size: 28px; 
+            font-weight: bold; color: #333333;">
+    🅿️ Parques elegíveis
+</div>
+    
+<div style="position: absolute; bottom: 10px; left: 10px; z-index: 1000;">
+    <img src="https://www.emel.pt/temas/emel/img/logo/emel-logo-color.svg" style="width: 100px; height: auto;">
+</div>
+    
+            <div class="folium-map" id="map_8a8dc74d1ff3c506d99977e6eb38fc73" ></div>
+        
+</body>
+<script>    
+    
+            var map_8a8dc74d1ff3c506d99977e6eb38fc73 = L.map(
+                "map_8a8dc74d1ff3c506d99977e6eb38fc73",
+                {
+                    center: [38.744315, -9.131104],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12.5,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var feature_group_00a43f741b92fdae53eb793550053d46 = L.featureGroup(
+                {}
+            ).addTo(map_8a8dc74d1ff3c506d99977e6eb38fc73);
+        
+    
+            var tile_layer_8a443354ee752a19f719e5ee75e8cf3e = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(feature_group_00a43f741b92fdae53eb793550053d46);
+        
+    
+            var feature_group_1eb8209b38a18e6dd4c6d60f4227a07a = L.featureGroup(
+                {}
+            ).addTo(map_8a8dc74d1ff3c506d99977e6eb38fc73);
+        
+    
+            var marker_4d406e28350eff11bb21483fc5d11ae3 = L.marker(
+                [38.744314683757324, -9.131103539699343],
+                {}
+            ).addTo(feature_group_1eb8209b38a18e6dd4c6d60f4227a07a);
+        
+    
+        var custom_icon_cb50f275c719b59377e60db17429a5e6 = L.icon({"iconSize": [15, 15], "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Parking_icon.svg/2048px-Parking_icon.svg.png"});
+        marker_4d406e28350eff11bb21483fc5d11ae3.setIcon(custom_icon_cb50f275c719b59377e60db17429a5e6);
+        
+    
+        var popup_334e22b30a6947cd415f4bec2b4f8d72 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8d1c4bdf12fcabd00de399aa01cf5b47 = $(`<div id="html_8d1c4bdf12fcabd00de399aa01cf5b47" style="width: 100.0%; height: 100.0%;">Manuel Gouveia</div>`)[0];
+            popup_334e22b30a6947cd415f4bec2b4f8d72.setContent(html_8d1c4bdf12fcabd00de399aa01cf5b47);
+        
+
+        marker_4d406e28350eff11bb21483fc5d11ae3.bindPopup(popup_334e22b30a6947cd415f4bec2b4f8d72)
+        ;
+
+        
+    
+    
+            var marker_9920663fe001f140a6e9a6eead6397ae = L.marker(
+                [38.744314683757324, -9.131103539699343],
+                {}
+            ).addTo(feature_group_1eb8209b38a18e6dd4c6d60f4227a07a);
+        
+    
+            var div_icon_e6c2b3c1a907ae981c0f4b963a7a7744 = L.divIcon({"className": "empty", "html": "\n    \u003cdiv style=\"\n        font-family: \u0027Gotham\u0027, sans-serif; \n        font-size: 12px; \n        font-weight: bold; \n        color: black; \n        margin-top: 20px; \n        text-align: center; \n        white-space: nowrap; \n        padding: 0 5px; \n        min-width: 50px;\"\u003e\n        Manuel Gouveia\n    \u003c/div\u003e\n    "});
+            marker_9920663fe001f140a6e9a6eead6397ae.setIcon(div_icon_e6c2b3c1a907ae981c0f4b963a7a7744);
+        
+    
+            var marker_a30aace7b9b41a9ec6aa9d5005e21169 = L.marker(
+                [38.71607388679096, -9.128597656183436],
+                {}
+            ).addTo(feature_group_1eb8209b38a18e6dd4c6d60f4227a07a);
+        
+    
+        var custom_icon_f356d6e0e65287a5dbc9ad0ceac9ecfd = L.icon({"iconSize": [15, 15], "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Parking_icon.svg/2048px-Parking_icon.svg.png"});
+        marker_a30aace7b9b41a9ec6aa9d5005e21169.setIcon(custom_icon_f356d6e0e65287a5dbc9ad0ceac9ecfd);
+        
+    
+        var popup_a223ff02ecae2edcde0f526ac7ee40cf = L.popup({"maxWidth": "100%"});
+
+        
+            var html_559b5fc48ea074b73fba259f0119460b = $(`<div id="html_559b5fc48ea074b73fba259f0119460b" style="width: 100.0%; height: 100.0%;">Graça</div>`)[0];
+            popup_a223ff02ecae2edcde0f526ac7ee40cf.setContent(html_559b5fc48ea074b73fba259f0119460b);
+        
+
+        marker_a30aace7b9b41a9ec6aa9d5005e21169.bindPopup(popup_a223ff02ecae2edcde0f526ac7ee40cf)
+        ;
+
+        
+    
+    
+            var marker_4baeb828ca96a6d88d6b23e12ad1dff0 = L.marker(
+                [38.71607388679096, -9.128597656183436],
+                {}
+            ).addTo(feature_group_1eb8209b38a18e6dd4c6d60f4227a07a);
+        
+    
+            var div_icon_ba1860a31a52aff742520a87f40e7e0a = L.divIcon({"className": "empty", "html": "\n    \u003cdiv style=\"\n        font-family: \u0027Gotham\u0027, sans-serif; \n        font-size: 12px; \n        font-weight: bold; \n        color: black; \n        margin-top: 20px; \n        text-align: center; \n        white-space: nowrap; \n        padding: 0 5px; \n        min-width: 50px;\"\u003e\n        Gra\u00e7a\n    \u003c/div\u003e\n    "});
+            marker_4baeb828ca96a6d88d6b23e12ad1dff0.setIcon(div_icon_ba1860a31a52aff742520a87f40e7e0a);
+        
+    
+            var marker_e2c6f5847f1922dff75c45dde801cd55 = L.marker(
+                [38.77957126379784, -9.157828602395375],
+                {}
+            ).addTo(feature_group_1eb8209b38a18e6dd4c6d60f4227a07a);
+        
+    
+        var custom_icon_97584640f9edd345e455e17f600ac06a = L.icon({"iconSize": [15, 15], "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Parking_icon.svg/2048px-Parking_icon.svg.png"});
+        marker_e2c6f5847f1922dff75c45dde801cd55.setIcon(custom_icon_97584640f9edd345e455e17f600ac06a);
+        
+    
+        var popup_2ff86b18472bcb61df6a229c56150de4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_86b9ed9156db1e378a22975eff3cb556 = $(`<div id="html_86b9ed9156db1e378a22975eff3cb556" style="width: 100.0%; height: 100.0%;">Ameixoeira</div>`)[0];
+            popup_2ff86b18472bcb61df6a229c56150de4.setContent(html_86b9ed9156db1e378a22975eff3cb556);
+        
+
+        marker_e2c6f5847f1922dff75c45dde801cd55.bindPopup(popup_2ff86b18472bcb61df6a229c56150de4)
+        ;
+
+        
+    
+    
+            var marker_2ffc14985893e97258805440235cec1b = L.marker(
+                [38.77957126379784, -9.157828602395375],
+                {}
+            ).addTo(feature_group_1eb8209b38a18e6dd4c6d60f4227a07a);
+        
+    
+            var div_icon_17ee55f2e8b282049cde407ebda672d9 = L.divIcon({"className": "empty", "html": "\n    \u003cdiv style=\"\n        font-family: \u0027Gotham\u0027, sans-serif; \n        font-size: 12px; \n        font-weight: bold; \n        color: black; \n        margin-top: 20px; \n        text-align: center; \n        white-space: nowrap; \n        padding: 0 5px; \n        min-width: 50px;\"\u003e\n        Ameixoeira\n    \u003c/div\u003e\n    "});
+            marker_2ffc14985893e97258805440235cec1b.setIcon(div_icon_17ee55f2e8b282049cde407ebda672d9);
+        
+    
+            var marker_939466eeb03c3a277e77a66ff4d1e20e = L.marker(
+                [38.75357410275267, -9.182126816347964],
+                {}
+            ).addTo(feature_group_1eb8209b38a18e6dd4c6d60f4227a07a);
+        
+    
+        var custom_icon_714ddb45092f79f3dc5965e039517d9f = L.icon({"iconSize": [15, 15], "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Parking_icon.svg/2048px-Parking_icon.svg.png"});
+        marker_939466eeb03c3a277e77a66ff4d1e20e.setIcon(custom_icon_714ddb45092f79f3dc5965e039517d9f);
+        
+    
+        var popup_28f2013ae395d96c9fa2f74c5947defe = L.popup({"maxWidth": "100%"});
+
+        
+            var html_353bd1e69c1c0cd4d4c7fe8e1776ed2b = $(`<div id="html_353bd1e69c1c0cd4d4c7fe8e1776ed2b" style="width: 100.0%; height: 100.0%;">Cosme Damião</div>`)[0];
+            popup_28f2013ae395d96c9fa2f74c5947defe.setContent(html_353bd1e69c1c0cd4d4c7fe8e1776ed2b);
+        
+
+        marker_939466eeb03c3a277e77a66ff4d1e20e.bindPopup(popup_28f2013ae395d96c9fa2f74c5947defe)
+        ;
+
+        
+    
+    
+            var marker_87137c2d3ea5d09c53a69d7eaad552ef = L.marker(
+                [38.75357410275267, -9.182126816347964],
+                {}
+            ).addTo(feature_group_1eb8209b38a18e6dd4c6d60f4227a07a);
+        
+    
+            var div_icon_90b515b694542b4a372340b0970c9fcb = L.divIcon({"className": "empty", "html": "\n    \u003cdiv style=\"\n        font-family: \u0027Gotham\u0027, sans-serif; \n        font-size: 12px; \n        font-weight: bold; \n        color: black; \n        margin-top: 20px; \n        text-align: center; \n        white-space: nowrap; \n        padding: 0 5px; \n        min-width: 50px;\"\u003e\n        Cosme Dami\u00e3o\n    \u003c/div\u003e\n    "});
+            marker_87137c2d3ea5d09c53a69d7eaad552ef.setIcon(div_icon_90b515b694542b4a372340b0970c9fcb);
+        
+    
+            var marker_d0a5ef3b81b5c55df88d4bec666cd6eb = L.marker(
+                [38.72838284692215, -9.108500710496866],
+                {}
+            ).addTo(feature_group_1eb8209b38a18e6dd4c6d60f4227a07a);
+        
+    
+        var custom_icon_4b08778ebfc2d9025107413f3dd3d9b9 = L.icon({"iconSize": [15, 15], "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Parking_icon.svg/2048px-Parking_icon.svg.png"});
+        marker_d0a5ef3b81b5c55df88d4bec666cd6eb.setIcon(custom_icon_4b08778ebfc2d9025107413f3dd3d9b9);
+        
+    
+        var popup_2c50ddc45ff610f7a5e5ba32caaa2185 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8d219f1396fcb896776a136c38654116 = $(`<div id="html_8d219f1396fcb896776a136c38654116" style="width: 100.0%; height: 100.0%;">HUB Criativo do Beato</div>`)[0];
+            popup_2c50ddc45ff610f7a5e5ba32caaa2185.setContent(html_8d219f1396fcb896776a136c38654116);
+        
+
+        marker_d0a5ef3b81b5c55df88d4bec666cd6eb.bindPopup(popup_2c50ddc45ff610f7a5e5ba32caaa2185)
+        ;
+
+        
+    
+    
+            var marker_c37d700de51be6a9e00b9f9eeebeab91 = L.marker(
+                [38.72838284692215, -9.108500710496866],
+                {}
+            ).addTo(feature_group_1eb8209b38a18e6dd4c6d60f4227a07a);
+        
+    
+            var div_icon_2a29e4ccd8ed1bc6c205fd4d89c7eb3c = L.divIcon({"className": "empty", "html": "\n    \u003cdiv style=\"\n        font-family: \u0027Gotham\u0027, sans-serif; \n        font-size: 12px; \n        font-weight: bold; \n        color: black; \n        margin-top: 20px; \n        text-align: center; \n        white-space: nowrap; \n        padding: 0 5px; \n        min-width: 50px;\"\u003e\n        HUB Criativo do Beato\n    \u003c/div\u003e\n    "});
+            marker_c37d700de51be6a9e00b9f9eeebeab91.setIcon(div_icon_2a29e4ccd8ed1bc6c205fd4d89c7eb3c);
+        
+    
+            L.control.fullscreen(
+                {"forceSeparateButton": false, "position": "topright", "title": "Full Screen", "titleCancel": "Exit Full Screen"}
+            ).addTo(map_8a8dc74d1ff3c506d99977e6eb38fc73);
+        
+    
+            var layer_control_e3b0f6184a6df5ceb2f3999ed46592fd = {
+                base_layers : {
+                },
+                overlays :  {
+                    "Parques EMEL" : feature_group_1eb8209b38a18e6dd4c6d60f4227a07a,
+                },
+            };
+            L.control.layers(
+                layer_control_e3b0f6184a6df5ceb2f3999ed46592fd.base_layers,
+                layer_control_e3b0f6184a6df5ceb2f3999ed46592fd.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_8a8dc74d1ff3c506d99977e6eb38fc73);
+        
+</script>
